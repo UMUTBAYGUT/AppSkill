@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace AppSkill.DAL.Model
+namespace AppSkill.Model.Database
 {
     public class SalesChannel
     {
-        public int Id { get; set; }
+        public int SalesChannelId { get; set; }
         public string ChannelName { get; set; }
         public List<Sku> Skus { get; set; }
     }

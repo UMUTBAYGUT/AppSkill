@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using AppSkill.DAL.Data;
-using AppSkill.DAL.Model;
+using AppSkill.Model.Database;
 
 
 namespace AppSkill.DAL.Common

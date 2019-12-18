@@ -8,15 +8,15 @@ using System.Text;
 
 namespace AppSkill.Core.Repository
 {
-    public interface ILocationRepository : IRepository<Location>
+    public interface ISkuRepository : IRepository<Sku>
     {
 
     }
-    public class LocationRepository : ILocationRepository
+    public class SkuRepository : ISkuRepository
     {
         AppSkillDbContextPostreSql _db;
 
-        public LocationRepository(AppSkillDbContextPostreSql DbContext)
+        public SkuRepository(AppSkillDbContextPostreSql DbContext)
         {
             _db = DbContext;
         }
@@ -24,7 +24,7 @@ namespace AppSkill.Core.Repository
 
         public int Count()
         {
-            return _db.Locations.Count();
+            return _db.Skus.Count();
         }
 
         public bool Delete(int id)
@@ -33,13 +33,13 @@ namespace AppSkill.Core.Repository
 
             {
 
-                Location _obj = _db.Locations.FirstOrDefault(us => us.LocationId == id);
+                Sku _obj = _db.Skus.FirstOrDefault(us => us.SkuId == id);
 
                 if (_obj != null)
 
                 {
 
-                    _db.Locations.Remove(_obj);
+                    _db.Skus.Remove(_obj);
 
                 }
 
@@ -64,33 +64,33 @@ namespace AppSkill.Core.Repository
             }
         }
 
-        public Location Get(Expression<Func<Location, bool>> expression)
+        public Sku Get(Expression<Func<Sku, bool>> expression)
         {
-            return _db.Locations.FirstOrDefault(expression);
+            return _db.Skus.FirstOrDefault(expression);
         }
 
-        public IEnumerable<Location> GetAll()
+        public IEnumerable<Sku> GetAll()
         {
-            return _db.Locations.Select(a => a);
+            return _db.Skus.Select(a => a);
         }
 
-        public Location GetById(int id)
+        public Sku GetById(int id)
         {
-            return _db.Locations.FirstOrDefault(a => a.LocationId == id);
+            return _db.Skus.FirstOrDefault(a => a.SkuId == id);
         }
 
-        public IQueryable<Location> GetMany(Expression<Func<Location, bool>> expression)
+        public IQueryable<Sku> GetMany(Expression<Func<Sku, bool>> expression)
         {
-            return _db.Locations.Where(expression);
+            return _db.Skus.Where(expression);
         }
 
-        public bool Insert(Location obj)
+        public bool Insert(Sku obj)
         {
             try
 
             {
 
-                _db.Locations.Add(obj);
+                _db.Skus.Add(obj);
 
                 return true;
 
@@ -110,7 +110,7 @@ namespace AppSkill.Core.Repository
             try
 
             {
-                
+
                 _db.SaveChanges();
 
                 return true;
@@ -128,13 +128,13 @@ namespace AppSkill.Core.Repository
             }
         }
 
-        public bool Update(Location obj)
+        public bool Update(Sku obj)
         {
             try
 
             {
 
-                _db.Locations.Update(obj);
+                _db.Skus.Update(obj);
 
                 return true;
 

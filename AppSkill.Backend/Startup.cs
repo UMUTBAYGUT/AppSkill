@@ -9,6 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using AppSkill.DAL;
+using Microsoft.EntityFrameworkCore;
+using AppSkill.Core.Repository;
 
 namespace AppSkill.Backend
 {
@@ -25,6 +28,13 @@ namespace AppSkill.Backend
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            services.AddEntityFrameworkNpgsql().AddDbContext<AppSkillDbContextPostreSql>(opt =>
+            opt.UseNpgsql(Configuration.GetConnectionString("PostgreConnection")));
+            services.AddTransient<ILocationRepository, LocationRepository>();
+            services.AddTransient<ILocationSalesChannelRelationRepository, LocationSalesChannelRelationRepository>();
+            services.AddTransient<ISalesChannelRepository, SalesChannelRepository>();
+            services.AddTransient<ISalesChannelSkuRelationRepository, SalesChannelSkuRelationRepository>();
+            services.AddTransient<ISkuRepository, SkuRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

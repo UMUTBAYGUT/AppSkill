@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace AppSkill.Backend.Controllers
+namespace AppSkill.Backend.Controllers.v1
 {
     [ApiController]
     [Route("[controller]")]
-    public class GetAvailability : BaseController<GetAvailability>
+    public class GetAvailabilityController : BaseController<GetAvailabilityController>
     {
-        public GetAvailability()
+        public GetAvailabilityController()
         {
 
         }

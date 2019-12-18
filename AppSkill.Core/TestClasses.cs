@@ -10,7 +10,7 @@ namespace AppSkill.Core
 {
 
     // Async query provider for unit testing
-    internal class TestAsyncQueryProvider<TEntity> : IAsyncQueryProvider
+  /*  internal class TestAsyncQueryProvider<TEntity> : IAsyncQueryProvider
     {
         private readonly IQueryProvider _inner;
 
@@ -99,6 +99,6 @@ namespace AppSkill.Core
         {
             return Task.FromResult(_inner.MoveNext());
         }
-    }
+    }*/
 
 }

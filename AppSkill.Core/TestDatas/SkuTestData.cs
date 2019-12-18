@@ -8,9 +8,9 @@ namespace AppSkill.Core.TestDatas
 {
     public static class SkuTestData
     {
-        public static IQueryable<Sku> Skus
+       /* public static IQueryable<Sku> Sku
         {
-            
+            /*
             get
             {
                 return new List<Sku>
@@ -22,6 +22,6 @@ namespace AppSkill.Core.TestDatas
 
                 }.AsQueryable();
             }
-        }
+        }*/
     }
 }

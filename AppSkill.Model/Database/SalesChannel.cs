@@ -7,6 +7,5 @@ namespace AppSkill.Model.Database
     {
         public int SalesChannelId { get; set; }
         public string ChannelName { get; set; }
-        public List<Sku> Skus { get; set; }
     }
 }

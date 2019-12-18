@@ -1,0 +1,65 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using AppSkill.Core.Repository;
+using AppSkill.Model.Database;
+using Microsoft.AspNetCore.Mvc;
+
+// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+namespace AppSkill.Backend.Controllers.v1
+{
+    [Route("v1/api/[controller]")]
+    public class LocationController : Controller
+    {
+        private readonly ILocationRepository _locationRepository;
+
+        public LocationController(ILocationRepository location)
+        {
+            _locationRepository = location;
+        }
+
+
+        // GET: api/values
+        [HttpGet]
+        public IActionResult Get()
+        {
+            _locationRepository.Insert(new Location() { LocationName = "İstanbul" });
+
+            _locationRepository.Save();
+
+            var result = _locationRepository.GetAll();
+            if(result.FirstOrDefault().LocationName != "Adana")
+            {
+                return Problem(title:"BadRequest", statusCode:404, detail:"Bulunamadı");
+            }
+            return Ok(result);
+        }
+
+        // GET api/values/5
+        [HttpGet("{id}")]
+        public string Get(int id)
+        {
+            return "value";
+        }
+
+        // POST api/values
+        [HttpPost]
+        public void Post([FromBody]string value)
+        {
+        }
+
+        // PUT api/values/5
+        [HttpPut("{id}")]
+        public void Put(int id, [FromBody]string value)
+        {
+        }
+
+        // DELETE api/values/5
+        [HttpDelete("{id}")]
+        public void Delete(int id)
+        {
+        }
+    }
+}

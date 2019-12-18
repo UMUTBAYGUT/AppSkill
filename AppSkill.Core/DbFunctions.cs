@@ -8,7 +8,7 @@ using Moq;
 
 namespace AppSkill.Core
 {
-    public static class DbFunctions
+   /* public static class DbFunctions
     {
         public static Mock<DbSet<T>> GetDbSet<T>(IQueryable<T> LocationTestData) where T : class
         {
@@ -20,5 +20,5 @@ namespace AppSkill.Core
             MockSet.As<IQueryable<T>>().Setup(x => x.GetEnumerator()).Returns(LocationTestData.GetEnumerator());
             return MockSet;
         }
-    }
+    }*/
 }

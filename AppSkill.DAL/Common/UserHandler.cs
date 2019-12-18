@@ -22,9 +22,9 @@ namespace AppSkill.DAL.Common
             _DbContext = DbContext;
         }
 
-        public async Task<Sku> GetSkusByLocation(string location)
+     /*   public async Task<Sku> GetSkusByLocation(int locationId)
         {
-            var sku = await _DbContext.Skus.Where(x => x.Location.Equals(location)).FirstOrDefaultAsync();
+            var sku = await _DbContext.Skus.Where(x => x.LocationId.Equals(locationId)).FirstOrDefaultAsync();
             if (sku != null)
                 return sku;
             return null;
@@ -36,6 +36,6 @@ namespace AppSkill.DAL.Common
             if (sku != null)
                 return sku;
             return null;
-        }
+        }*/
     }
 }

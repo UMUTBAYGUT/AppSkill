@@ -8,15 +8,15 @@ using System.Text;
 
 namespace AppSkill.Core.Repository
 {
-    public interface ILocationRepository : IRepository<Location>
+    public interface ISalesChannelRepository : IRepository<SalesChannel>
     {
 
     }
-    public class LocationRepository : ILocationRepository
+    public class SalesChannelRepository : ISalesChannelRepository
     {
         AppSkillDbContextPostreSql _db;
 
-        public LocationRepository(AppSkillDbContextPostreSql DbContext)
+        public SalesChannelRepository(AppSkillDbContextPostreSql DbContext)
         {
             _db = DbContext;
         }
@@ -24,7 +24,7 @@ namespace AppSkill.Core.Repository
 
         public int Count()
         {
-            return _db.Locations.Count();
+            return _db.SalesChannels.Count();
         }
 
         public bool Delete(int id)
@@ -33,13 +33,13 @@ namespace AppSkill.Core.Repository
 
             {
 
-                Location _obj = _db.Locations.FirstOrDefault(us => us.LocationId == id);
+                SalesChannel _obj = _db.SalesChannels.FirstOrDefault(us => us.SalesChannelId == id);
 
                 if (_obj != null)
 
                 {
 
-                    _db.Locations.Remove(_obj);
+                    _db.SalesChannels.Remove(_obj);
 
                 }
 
@@ -64,33 +64,33 @@ namespace AppSkill.Core.Repository
             }
         }
 
-        public Location Get(Expression<Func<Location, bool>> expression)
+        public SalesChannel Get(Expression<Func<SalesChannel, bool>> expression)
         {
-            return _db.Locations.FirstOrDefault(expression);
+            return _db.SalesChannels.FirstOrDefault(expression);
         }
 
-        public IEnumerable<Location> GetAll()
+        public IEnumerable<SalesChannel> GetAll()
         {
-            return _db.Locations.Select(a => a);
+            return _db.SalesChannels.Select(a => a);
         }
 
-        public Location GetById(int id)
+        public SalesChannel GetById(int id)
         {
-            return _db.Locations.FirstOrDefault(a => a.LocationId == id);
+            return _db.SalesChannels.FirstOrDefault(a => a.SalesChannelId == id);
         }
 
-        public IQueryable<Location> GetMany(Expression<Func<Location, bool>> expression)
+        public IQueryable<SalesChannel> GetMany(Expression<Func<SalesChannel, bool>> expression)
         {
-            return _db.Locations.Where(expression);
+            return _db.SalesChannels.Where(expression);
         }
 
-        public bool Insert(Location obj)
+        public bool Insert(SalesChannel obj)
         {
             try
 
             {
 
-                _db.Locations.Add(obj);
+                _db.SalesChannels.Add(obj);
 
                 return true;
 
@@ -110,7 +110,7 @@ namespace AppSkill.Core.Repository
             try
 
             {
-                
+
                 _db.SaveChanges();
 
                 return true;
@@ -128,13 +128,13 @@ namespace AppSkill.Core.Repository
             }
         }
 
-        public bool Update(Location obj)
+        public bool Update(SalesChannel obj)
         {
             try
 
             {
 
-                _db.Locations.Update(obj);
+                _db.SalesChannels.Update(obj);
 
                 return true;
 

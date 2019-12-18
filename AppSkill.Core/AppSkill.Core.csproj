@@ -9,4 +9,14 @@
     <ProjectReference Include="..\AppSkill.Model\AppSkill.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="3.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="TestClasses.cs" />
+    <Compile Remove="TestDatas\SalesChannelTestData.cs" />
+    <Compile Remove="TestDatas\SkuTestData.cs" />
+    <Compile Remove="TestDatas\LocationTestData.cs" />
+    <Compile Remove="DbFunctions.cs" />
+  </ItemGroup>
 </Project>

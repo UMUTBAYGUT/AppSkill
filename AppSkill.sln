@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSkill.Model", "AppSkill.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSkill.Core", "AppSkill.Core\AppSkill.Core.csproj", "{BC30EDB8-4C16-4FB3-AAD0-B5ED2F0BA0B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppSkill.Operation", "AppSkill.Operation\AppSkill.Operation.csproj", "{40086DC9-C263-4865-B62D-72295EE39426}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{BC30EDB8-4C16-4FB3-AAD0-B5ED2F0BA0B6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BC30EDB8-4C16-4FB3-AAD0-B5ED2F0BA0B6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BC30EDB8-4C16-4FB3-AAD0-B5ED2F0BA0B6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40086DC9-C263-4865-B62D-72295EE39426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40086DC9-C263-4865-B62D-72295EE39426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40086DC9-C263-4865-B62D-72295EE39426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40086DC9-C263-4865-B62D-72295EE39426}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

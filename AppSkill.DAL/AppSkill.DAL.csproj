@@ -15,8 +15,6 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Common\" />
-    <Folder Include="Data\" />
     <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>

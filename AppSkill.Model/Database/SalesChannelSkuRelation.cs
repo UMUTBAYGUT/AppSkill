@@ -1,7 +1,7 @@
 ﻿using System;
 namespace AppSkill.Model.Database
 {
-    public class SalesChannelSkuRelation
+    public class SalesChannelSkuRelation : ModelBase
     {
         public SalesChannelSkuRelation()
         {

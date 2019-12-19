@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DependencyInjection.cs\" />
+    <Folder Include="Service\" />
+    <Folder Include="Operation\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppSkill.Core\AppSkill.Core.csproj" />
+    <ProjectReference Include="..\AppSkill.Model\AppSkill.Model.csproj" />
+  </ItemGroup>
+</Project>

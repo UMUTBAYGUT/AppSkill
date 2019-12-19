@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace AppSkill.Model.Database
 {
-    public class Sku
+    public class Sku : ModelBase
     {
         public int SkuId { get; set; }
         public string Title { get; set; }

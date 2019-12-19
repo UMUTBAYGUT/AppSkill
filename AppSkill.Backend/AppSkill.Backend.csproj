@@ -9,10 +9,7 @@
     <Content Remove="Properties\launchSettings.json" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\AppSkill.DAL\AppSkill.DAL.csproj">
-      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
-    </ProjectReference>
-    <ProjectReference Include="..\AppSkill.Core\AppSkill.Core.csproj">
+    <ProjectReference Include="..\AppSkill.Operation\AppSkill.Operation.csproj">
       <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
     </ProjectReference>
   </ItemGroup>

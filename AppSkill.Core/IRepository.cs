@@ -2,21 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+using Microsoft.EntityFrameworkCore.Query;
+using AppSkill.Core.Paging;
 
 namespace AppSkill.Core
 {
-    public interface IRepository<T> where T : class
+    public interface IRepository<T> : IReadRepository<T>, IDisposable where T : class
     {
-        IEnumerable<T> GetAll();
-        T GetById(int id);
-        T Get(Expression<Func<T, bool>> expression);
-        IQueryable<T> GetMany(Expression<Func<T, bool>> expression);
-        bool Insert(T obj);
-        bool Update(T obj);
-        bool Delete(int id);
-        int Count();
-        bool Save();
-        //CI Test
+        void Add(T entity);
+        void Add(params T[] entities);
+        void Add(IEnumerable<T> entities);
+
+
+        void Delete(T entity);
+        void Delete(object id);
+        void Delete(params T[] entities);
+        void Delete(IEnumerable<T> entities);
+
+
+        void Update(T entity);
+        void Update(params T[] entities);
+        void Update(IEnumerable<T> entities);
     }
 }

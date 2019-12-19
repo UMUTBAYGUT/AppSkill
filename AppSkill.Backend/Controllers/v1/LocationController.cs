@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AppSkill.Core.Repository;
+using AppSkill.Core;
 using AppSkill.Model.Database;
+using AppSkill.Operation.Operation;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -13,28 +11,22 @@ namespace AppSkill.Backend.Controllers.v1
     [Route("v1/api/[controller]")]
     public class LocationController : Controller
     {
-        private readonly ILocationRepository _locationRepository;
-
-        public LocationController(ILocationRepository location)
+        IUnitOfWork _ueof;
+        public LocationController(IUnitOfWork unitOfWork)
         {
-            _locationRepository = location;
+            _ueof = unitOfWork;
         }
-
 
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
         {
-            _locationRepository.Insert(new Location() { LocationName = "İstanbul" });
+            LocationOperation op = new LocationOperation();
 
-            _locationRepository.Save();
-
-            var result = _locationRepository.GetAll();
-            if(result.FirstOrDefault().LocationName != "Adana")
-            {
-                return Problem(title:"BadRequest", statusCode:404, detail:"Bulunamadı");
-            }
-            return Ok(result);
+            op.AddLocation(_ueof,new Location() { LocationName = "Amed", CreatedDate = DateTime.Now });
+            _ueof.SaveChanges();
+            var a = op.GetAllLocations(_ueof);
+            return Ok(a);
         }
 
         // GET api/values/5

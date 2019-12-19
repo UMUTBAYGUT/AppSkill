@@ -18,5 +18,12 @@
     <Compile Remove="TestDatas\SkuTestData.cs" />
     <Compile Remove="TestDatas\LocationTestData.cs" />
     <Compile Remove="DbFunctions.cs" />
+    <Compile Remove="Repository\LocationRepository.cs" />
+    <Compile Remove="Repository\SalesChannelRepository.cs" />
+    <Compile Remove="Repository\LocationSalesChannelRelation.cs" />
+    <Compile Remove="Repository\SalesChannelSkuRelation.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Paging\" />
   </ItemGroup>
 </Project>

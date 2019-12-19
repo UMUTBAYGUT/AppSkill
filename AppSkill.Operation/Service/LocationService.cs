@@ -6,19 +6,19 @@ using AppSkill.Operation.Operation;
 
 namespace AppSkill.Operation.Service
 {
-    public interface ILocationService
+    public interface ILocationService<IUnitOfWork>
     {
-
-
+        Core.Paging.IPaginate<Location> GetAllLocations();
+        void AddLocation(Location entity);
     }
 
-    public class LocationService
+    public class LocationService : ILocationService<IUnitOfWork>
     {
-        private readonly IUnitOfWork _UOW;
-        public LocationService(IUnitOfWork uow)
+        public LocationService(IUnitOfWork UOW)
         {
-            _UOW = uow;
+            _UOW = UOW;
         }
+        private readonly IUnitOfWork _UOW;
 
         public Core.Paging.IPaginate<Location> GetAllLocations()
         {

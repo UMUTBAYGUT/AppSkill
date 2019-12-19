@@ -6,6 +6,8 @@ using Microsoft.Extensions.Hosting;
 using AppSkill.DAL;
 using Microsoft.EntityFrameworkCore;
 using AppSkill.Operation.DependencyInjection;
+using AppSkill.Operation;
+using AppSkill.Core;
 
 namespace AppSkill.Backend
 {
@@ -25,6 +27,8 @@ namespace AppSkill.Backend
 
             services.AddDbContext<AppSkillDbContextPostreSql>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("PostgreConnection"))).AddUnitOfWork<AppSkillDbContextPostreSql>();
+
+            services.AddSingleton<IAppSkillService<IUnitOfWork>, AppSkillService>();
 
         }
 

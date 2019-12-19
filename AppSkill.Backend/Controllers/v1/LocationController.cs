@@ -1,7 +1,9 @@
 ﻿using System;
 using AppSkill.Core;
 using AppSkill.Model.Database;
+using AppSkill.Operation;
 using AppSkill.Operation.Operation;
+using AppSkill.Operation.Service;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,21 +13,18 @@ namespace AppSkill.Backend.Controllers.v1
     [Route("v1/api/[controller]")]
     public class LocationController : Controller
     {
-        IUnitOfWork _ueof;
-        public LocationController(IUnitOfWork unitOfWork)
+        IAppSkillService<IUnitOfWork> appSkillService;
+        public LocationController(IAppSkillService<IUnitOfWork> appSkillService)
         {
-            _ueof = unitOfWork;
+            this.appSkillService = appSkillService;
         }
 
         // GET: api/values
         [HttpGet]
         public IActionResult Get()
         {
-            LocationOperation op = new LocationOperation();
-
-            op.AddLocation(_ueof,new Location() { LocationName = "Amed", CreatedDate = DateTime.Now });
-            _ueof.SaveChanges();
-            var a = op.GetAllLocations(_ueof);
+            
+            var a = appSkillService.LocationService.GetAllLocations();
             return Ok(a);
         }
 

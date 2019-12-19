@@ -9,9 +9,6 @@ namespace AppSkill.Operation.Operation
     public class LocationOperation
     {
 
-        public LocationOperation()
-        {
-        }
 
         public IPaginate<Location> GetAllLocations(IUnitOfWork uow)
         {

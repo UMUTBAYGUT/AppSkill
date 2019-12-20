@@ -8,16 +8,21 @@ namespace AppSkill.Operation.Operation
 {
     public class LocationOperation
     {
+        public IUnitOfWork IAppDb { get; set; }
 
-
-        public IPaginate<Location> GetAllLocations(IUnitOfWork uow)
+        public LocationOperation() : this(null)
         {
-           return uow.GetRepository<Location>().GetList();
+
         }
 
-        public void AddLocation(IUnitOfWork uow,Location entity)
+        public LocationOperation(IUnitOfWork db)
         {
-             uow.GetRepository<Location>().Add(entity);
+            IAppDb = db;
+        }
+
+        public IPaginate<Location> GetAllLocations()
+        {
+           return IAppDb.GetRepository<Location>().GetList();
         }
     }
 }

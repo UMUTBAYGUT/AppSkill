@@ -1,34 +1,11 @@
 ﻿using System;
-using AppSkill.Core;
-using AppSkill.DAL;
-using AppSkill.Operation.Service;
-using Microsoft.EntityFrameworkCore;
+using AppSkill.Core.Paging;
+using AppSkill.Model.Database;
 
 namespace AppSkill.Operation
 {
-    public interface IAppSkillService<IUnitOfWork>
+    public partial interface IAppSkillService
     {
-        ILocationService<IUnitOfWork> LocationService { get; }
-
-    }
-    public class AppSkillService : IAppSkillService<IUnitOfWork>
-    {
-        public AppSkillService()
-        {
-            
-        }
-
-        private IUnitOfWork _unit;
-        private ILocationService<IUnitOfWork> _locationService;
-        public ILocationService<IUnitOfWork> LocationService
-        {
-            get
-            {
-                if (_locationService == null)
-                    _locationService = new LocationService();
-                return _locationService;
-            }
-        }
-
+        IPaginate<Location> GetAllLocations();
     }
 }

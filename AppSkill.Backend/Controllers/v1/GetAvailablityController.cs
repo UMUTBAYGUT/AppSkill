@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AppSkill.Core;
 using AppSkill.Model.Service;
+using AppSkill.Operation;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -11,12 +12,18 @@ namespace AppSkill.Backend.Controllers.v1
     [Route("v1/[controller]")]
     public class GetAvailablityController : Controller
     {
+        IAppSkillService _appSkillService;
+        public GetAvailablityController(IAppSkillService appSkillService)
+        {
+            _appSkillService = appSkillService;
+        }
 
         // GET: api/values
         [HttpGet]
-        public IEnumerable<string> Get(GetAvailabityRequestModal _object)
+        public IActionResult Get(GetAvailabityRequestModal _object)
         {
-            return new string[] { "value1", "value2" };
+            var a = _appSkillService.GetAllLocations();
+            return Ok(a);
         }
 
         // GET api/values/5

@@ -28,7 +28,8 @@ namespace AppSkill.Backend
             services.AddDbContext<AppSkillDbContextPostreSql>(options =>
                 options.UseNpgsql(Configuration.GetConnectionString("PostgreConnection"))).AddUnitOfWork<AppSkillDbContextPostreSql>();
 
-            services.AddSingleton<IAppSkillService<IUnitOfWork>, AppSkillService>();
+
+            services.AddTransient<IAppSkillService, AppSkillService>(_ => (new AppSkillService { AppDb = services.BuildServiceProvider().GetService<IUnitOfWork>()}));
 
         }
 

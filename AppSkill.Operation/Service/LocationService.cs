@@ -1,35 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using AppSkill.Core;
+using AppSkill.Core.Paging;
 using AppSkill.Model.Database;
 using AppSkill.Operation.Operation;
 
-namespace AppSkill.Operation.Service
+namespace AppSkill.Operation
 {
-    public interface ILocationService<IUnitOfWork>
+
+    public partial class AppSkillService : IAppSkillService
     {
-        Core.Paging.IPaginate<Location> GetAllLocations();
-        void AddLocation(Location entity);
-    }
-
-    public class LocationService : ILocationService<IUnitOfWork>
-    {
-        public LocationService(IUnitOfWork UOW)
+        public IPaginate<Location> GetAllLocations()
         {
-            _UOW = UOW;
-        }
-        private readonly IUnitOfWork _UOW;
-
-        public Core.Paging.IPaginate<Location> GetAllLocations()
-        {
-            LocationOperation op = new LocationOperation();
-            return op.GetAllLocations(_UOW);
-        }
-
-        public void AddLocation(Location entity)
-        {
-            LocationOperation op = new LocationOperation();
-             op.AddLocation(_UOW, entity);
+            LocationOperation op = new LocationOperation(AppDb);
+            return op.GetAllLocations();
         }
     }
 }
